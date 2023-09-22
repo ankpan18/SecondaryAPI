@@ -1,0 +1,15 @@
+Tables:
+
+
+Category:-
+
+catid*,name
+
+Products:-
+
+sku*,catid**,name,salePrice,digital,shippingCost,description,customerReviewCount
+
+Images:-
+
+sku**(Foreign Key),link
+
