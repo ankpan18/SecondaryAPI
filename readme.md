@@ -1,9 +1,8 @@
-##################
-This project is made on Codeigniter 3.0 Framework with MySQL database support. I have also included the bonus task in the bonus folder of this repositiory.
+## About
+This project is made on Codeigniter 3 Framework with MySQL database support. I have also included the bonus task in the bonus folder of this repositiory.
 
 
-###################
-How to use this project
+## How to use this project
 
 1. Download this project using Github.
 2. Save this folder in the htdocs folder of XAMPP. Install XAMPP if not done.
@@ -12,16 +11,19 @@ How to use this project
 5. Go to "C:\xampp\htdocs\php\php.ini" and open it in notepad.
 6. Here we need to change the maximum execution time and database size for phpmyadmin.
  	Search for line with "max_execution_time" and replace this line with the below one
+
 			max_execution_time = 3600
 
 	Similarly search for line with "upload_max_filesize" and replace this line with the below one
-			upload_max_filesize = 256M
 
-7. Now restart Apache and MySQL server in XAMPP.
-8. Open localhost/SecondaryAPI/Catalog in your browser for loading all data in your database.
-9. Don't refresh or close this page till it stops loading. It will return the number of seconds taken to insert all record after the execution is completed.
+			memory_limit=512M
+
+8. Now restart Apache and MySQL server in XAMPP.
+9. Add API Key in config table with id=1.
+10. Open localhost/SecondaryAPI/Catalog in your browser for loading all data in your database.
+11. Don't refresh or close this page till it stops loading. It will return the number of seconds taken to insert all record after the execution is completed.
 	It took me about 27 minutes based on internet connection and server response time. The time might vary accordingly due to these conditions.
-10. Get categories API Link:localhost/SecondaryAPI/shop/categories/5/1
+12. Get categories API Link:localhost/SecondaryAPI/shop/categories/5/1
 where 5 is the limit-number of items to be returned and 1 is the page number for pagination. You can change these numbers are per your requirement.
 
 Get products API Link:localhost/SecondaryAPI/shop/products/5/1/catid
@@ -31,13 +33,17 @@ You can test these two REST API Endpoint on thunderclient, postman and even your
  
 11. You can also access bonus page by going in bonus folder and opening demo.html in your browser to displays the list of categories and clicking the category shows the list of products with name, price, images and reviews.
 
+## Screenshots for Bonus Page
+
+![image](https://github.com/ankpan18/SecondaryAPI/assets/79756942/acd2f9df-b36c-4ef7-a887-70cdcad85060)
 
 
-#################
+![image](https://github.com/ankpan18/SecondaryAPI/assets/79756942/a7f4c62a-e71f-466f-a26d-61673bce4658)
 
-My Approach
 
-I first set up the basic template using CodeIgniter. I created a database named ecom in db.sql with three tables: Categories, Products, and Images. To ensure a well-organized project structure, I followed the MVC pattern. The Controller handles the flow of routes to models or views as required. The Models are responsible for handling communication with the database, while the Views display web pages or page fragments.
+## My Approach
+
+I first set up the basic template using CodeIgniter. I created a database named ecom in db.sql with four tables: Categories, Products, Images, and Config(For API Key). To ensure a well-organized project structure, I followed the MVC pattern. The Controller handles the flow of routes to models or views as required. The Models are responsible for handling communication with the database, while the Views display web pages or page fragments.
 
 To store all the data from the provided ecommerce API, I created a controller named Catalog. Our database size is 177 MB. After optimization, I was able to reduce the execution time for storing data in our database from over an hour to just 27 minutes. Initially, I was inserting records one by one, which was inefficient and time-consuming. Now, records are added in batches, resulting in fewer queries and reduced execution time.
 
@@ -47,9 +53,9 @@ To display the list of categories, I created an HTML, CSS, and JavaScript page. 
 
 
 
-###################
-What is CodeIgniter
-###################
+
+### What is CodeIgniter
+
 
 CodeIgniter is an Application Development Framework - a toolkit - for people
 who build web sites using PHP. Its goal is to enable you to develop projects
@@ -60,7 +66,7 @@ you creatively focus on your project by minimizing the amount of code needed
 for a given task.
 
 *******************
-Release Information
+### Release Information
 *******************
 
 This repo contains in-development code for future releases. To download the
@@ -68,14 +74,14 @@ latest stable release please visit the `CodeIgniter Downloads
 <https://codeigniter.com/download>`_ page.
 
 **************************
-Changelog and New Features
+### Changelog and New Features
 **************************
 
 You can find a list of all changes for each release in the `user
 guide change log <https://github.com/bcit-ci/CodeIgniter/blob/develop/user_guide_src/source/changelog.rst>`_.
 
 *******************
-Server Requirements
+### Server Requirements
 *******************
 
 PHP version 5.6 or newer is recommended.
@@ -85,21 +91,21 @@ such old versions of PHP, because of potential security and performance
 issues, as well as missing features.
 
 ************
-Installation
+### Installation
 ************
 
 Please see the `installation section <https://codeigniter.com/userguide3/installation/index.html>`_
 of the CodeIgniter User Guide.
 
 *******
-License
+### License
 *******
 
 Please see the `license
 agreement <https://github.com/bcit-ci/CodeIgniter/blob/develop/user_guide_src/source/license.rst>`_.
 
 *********
-Resources
+### Resources
 *********
 
 -  `User Guide <https://codeigniter.com/docs>`_
