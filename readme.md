@@ -10,28 +10,29 @@ This project is made on Codeigniter 3 Framework with MySQL database support. I h
 4. Run db.sql in your mysql shell using this command: mysql -u root -p db_name < "C:\xampp\htdocs\SecondaryAPI\db_name.sql"
 5. Go to "C:\xampp\htdocs\php\php.ini" and open it in notepad.
 6. Here we need to change the maximum execution time and database size for phpmyadmin.
- 	Search for line with "max_execution_time" and replace this line with the below one
+ Search for line with "max_execution_time" and replace this line with the below one
 
-			max_execution_time = 3600
 
-	Similarly search for line with "upload_max_filesize" and replace this line with the below one
+         max_execution_time = 3600
 
-			memory_limit=512M
+Similarly search for line with "upload_max_filesize" and replace this line with the below one
+
+      memory_limit=512M
 
 8. Now restart Apache and MySQL server in XAMPP.
-9. Add API Key in config table with id=1.
+9. Add API Key in config table with id=1 using PHPMyAdmin.
 10. Open localhost/SecondaryAPI/Catalog in your browser for loading all data in your database.
 11. Don't refresh or close this page till it stops loading. It will return the number of seconds taken to insert all record after the execution is completed.
 	It took me about 27 minutes based on internet connection and server response time. The time might vary accordingly due to these conditions.
-12. Get categories API Link:localhost/SecondaryAPI/shop/categories/5/1
+12. Get categories API <b>Link:"localhost/SecondaryAPI/shop/categories/5/1" </b>
 where 5 is the limit-number of items to be returned and 1 is the page number for pagination. You can change these numbers are per your requirement.
 
-Get products API Link:localhost/SecondaryAPI/shop/products/5/1/catid
+<b>Get products API Link:"localhost/SecondaryAPI/shop/products/5/1/catid"</b>
 where 5 is the limit-number of items to be returned, 1 is the page number for pagination and catid is the category Id. You can change these numbers and string as per your requirement.
 
-You can test these two REST API Endpoint on thunderclient, postman and even your browser. I have not included API Key required for these API since we are only using it locally in our system.
+You can test these two REST API Endpoint on thunderclient, postman and even your browser. I have not included API Key as required parameter for these API since we are only using it locally in our system.
  
-11. You can also access bonus page by going in bonus folder and opening demo.html in your browser to displays the list of categories and clicking the category shows the list of products with name, price, images and reviews.
+13. You can also access bonus page by going in bonus folder and opening demo.html in your browser to displays the list of categories and clicking the category shows the list of products with name, price, images and reviews.
 
 ## Screenshots for Bonus Page
 
@@ -45,7 +46,7 @@ You can test these two REST API Endpoint on thunderclient, postman and even your
 
 I first set up the basic template using CodeIgniter. I created a database named ecom in db.sql with four tables: Categories, Products, Images, and Config(For API Key). To ensure a well-organized project structure, I followed the MVC pattern. The Controller handles the flow of routes to models or views as required. The Models are responsible for handling communication with the database, while the Views display web pages or page fragments.
 
-To store all the data from the provided ecommerce API, I created a controller named Catalog. Our database size is 177 MB. After optimization, I was able to reduce the execution time for storing data in our database from over an hour to just 27 minutes. Initially, I was inserting records one by one, which was inefficient and time-consuming. Now, records are added in batches, resulting in fewer queries and reduced execution time.
+To store all the data from the provided ecommerce API, I created a controller named Catalog. Our database size is approximately 185 MB. After optimization, I was able to reduce the execution time for storing data in our database from over an hour to just 27 minutes. Initially, I was inserting records one by one, which was inefficient and time-consuming. Now, records are added in batches, resulting in fewer queries and reduced execution time.
 
 To read the catalog data from the database, I utilized a REST Controller library. This approach is beneficial as it accounts for potential issues such as slow API response times, rate limiting, or service outages. I implemented two REST API endpoints with support for pagination and record limits. Additionally, the categories are ordered based on the number of products in the response for these endpoints.
 
